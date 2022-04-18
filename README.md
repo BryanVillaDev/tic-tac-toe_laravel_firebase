@@ -26,5 +26,16 @@ El juego esta desarrollado en Laravel con jquery, donde laravel se esta usando c
 - FIREBASE_CREDENTIALS="nombre del archivo descargado"
 - FIREBASE_DATABASE_URL="url de la base creada"
  
- por ultimo ejecutar php artisan serve en la ubicacion del directorio clonado de github
+ -por ultimo ejecutar php artisan serve en la ubicacion del directorio clonado de github
+ 
+ 
+ -la construcción del juego quedó en un 90% dado que solo tuve el día de hoy para diseñarlo.
+ 
+## para jugar 
 
+- en una ventana dirigirse a localhost:8000
+- dar clik en crear sala
+- compartir el codigo de la sala con el otro jugador
+- en una ventana de incognito dirigirse a localhost:8000
+- dar clik en unirse a sala y pegar el código de la sala
+y ya se puede jugar
