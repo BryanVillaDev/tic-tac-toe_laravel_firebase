@@ -1,11 +1,12 @@
-// Creamos una hoja de scripts js parala logica del juego
-// creamos la variables definidas
-
+// ejecutamos la funcion de verificar
 VerificarJuego();
 
+
+
+// creamos la funcion de verificación
 function VerificarJuego() {
 
-
+    // creamos evento ajax para ir al controlador
     $.ajax({
         url: "play/verificar-juego",
         method: "POST",
@@ -13,21 +14,27 @@ function VerificarJuego() {
         cache: false,
         dataType: 'json',
         success: function(data) {
-
+            // tomamos valores retornados por el controlador y hacemos uso de ellos
+            // verificamos estado del juego
             if (data.juegoIniciado) {
+                //creamos la constante del arreglo alamcenado en la base de datos
                 const juegoActual = data.arrayJuego;
                 for (var i in juegoActual) {
+                    //recorremos el arreglo y dibujamos las jugadas
                     $('#celda' + i).text(juegoActual[i])
                 }
+                //dibujamos el juagador actual
                 $("#jugadorActual").val(data.jugadorActual);
             } else {
                 $("#jugadorActual").val("X");
 
             }
+            //seteamos unos valores en inputs que usaremos como variables
             $("#juegoActivo").val(data.juegoActivo);
             $("#juegoActual").val(data.arrayJuego.toString());
             $(".text-jugador").removeClass('hidden')
             $("#jugador").html(data.jugador);
+            //Validamos el ganador
             if (data.juegoActivo === false) {
                 $('.estado-juego').html("El ganador de la ronda es " + data.Ganador);
                 // alert("El ganador de la ronda es " + data.Ganador);
@@ -39,14 +46,17 @@ function VerificarJuego() {
         }
     });
 }
-
+// variables que usaremos más adelante
 let juegoActivo = $("#juegoActivo").val();;
 let jugadorActual = $("#jugadorActual").val();
 // creamos un arreglo para almacenar el juego
 let jugador = $("#jugador").text();;
 
+
+// detenemos el cron de verificar
 DetenerCron();
 if (jugador !== jugadorActual) {
+    // si el jugador es diferente a mi ejecutamos el cron
     IniciarCron();
 }
 
@@ -55,7 +65,7 @@ const MensajeGanador = () => `Jugador ${jugadorActual} ha ganado!`;
 const empateMensaje = () => `El juego terminó en empate.!`;
 
 
-//Dibujamos el jugador actual
+
 
 // creamos el evento para validar y jugar
 $(".celda-juego").on('click', function() {
@@ -238,48 +248,3 @@ function IniciarCron() {
         }, 1000);
 
 }
-
-
-
-
-// const CondicionesGanar = [
-//     [0, 1, 2],
-//     [3, 4, 5],
-//     [6, 7, 8],
-//     [0, 3, 6],
-//     [1, 4, 7],
-//     [2, 5, 8],
-//     [0, 4, 8],
-//     [2, 4, 6]
-// ];
-
-// function ValidarResultado(juegoActual, jugadorActual) {
-//     let RondaGanada = false;
-//     for (let i = 0; i <= 7; i++) {
-//         const CondicionGanadora = CondicionesGanar[i];
-//         let a = juegoActual[CondicionGanadora[0]];
-//         let b = juegoActual[CondicionGanadora[1]];
-//         let c = juegoActual[CondicionGanadora[2]];
-//         if (a === ' ' || b === ' ' || c === ' ') {
-//             return;
-//         }
-//         if (a === b && b === c) {
-//             RondaGanada = true;
-//             break
-//         }
-//     }
-//     if (RondaGanada) {
-//         $('.estado-juego').html(MensajeGanador());
-//         juegoActivo = false;
-//         return;
-//     }
-//     let RondaEmpate = !juegoActual.includes(" ");
-//     if (RondaEmpate) {
-//         $('.estado-juego').html(empateMensaje());
-//         juegoActivo = false;
-//         return;
-//     }
-
-//     jugadorActual = jugadorActual === "X" ? "O" : "X";
-//     $('.estado-juego').html(jugadorActualTurn());
-// }

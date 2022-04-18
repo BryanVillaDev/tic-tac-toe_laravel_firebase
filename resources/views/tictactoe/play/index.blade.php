@@ -49,9 +49,9 @@
                 {{-- Student app form --}}
                 <div class="col-md-5">
                     <div class="card">
-                        <input text="text" id="jugadorActual" value="X">
-                        <input text="text" id="juegoActual" value="NA">
-                        <input text="text" id="juegoActivo" value="true">
+                        <input text="hidden" id="jugadorActual" value="X">
+                        <input text="hidden" id="juegoActual" value="NA">
+                        <input text="hidden" id="juegoActivo" value="true">
                         <div class="card-header bg-dark text-white">
                             <h4>MULTIJUGADOR</h4>
                         </div>
