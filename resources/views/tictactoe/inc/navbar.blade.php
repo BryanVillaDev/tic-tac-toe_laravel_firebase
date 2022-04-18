@@ -13,12 +13,12 @@
                     <a class="nav-link active" aria-current="page" href="{{ url('play') }}">INICIO</a>
                 </li>
             
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('rooms') }}">SALAS PUBLICAS</a>
+                {{-- <li class="nav-item">
+                    <a class="nav-link" href="{{ url('rooms') }}">SALAS PUBLICAS </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('creditos') }}">CREDITOS</a>
-                </li>
+                </li> --}}
                 
             </ul>
 
