@@ -22,7 +22,7 @@ El juego esta desarrollado en Laravel con jquery, donde laravel se esta usando c
 - 1 ![image](https://user-images.githubusercontent.com/80850130/163855754-7b9aac7a-0b6a-4e5f-b4ed-340ffb57e7fc.png)
 - 2 ![image](https://user-images.githubusercontent.com/80850130/163855857-20e47b1f-c31c-4881-a0f7-3677d0a7ffc1.png)
 - descargar el archivo json de credenciales y guardarlo en la carpeta raiz
-3 asosicar definiciones en .env 
+3- asosicar definiciones en .env 
 - FIREBASE_CREDENTIALS="nombre del archivo descargado"
 - FIREBASE_DATABASE_URL="url de la base creada"
  
